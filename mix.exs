@@ -14,7 +14,8 @@ defmodule ElixirCowboyExample.MixProject do
   def application do
     [
       application: [
-        :cowboy
+        :cowboy,
+        :mongodb_driver
       ],
       extra_applications: [:logger],
       mod: {ElixirCowboyExample.Application, []}
@@ -24,7 +25,8 @@ defmodule ElixirCowboyExample.MixProject do
   defp deps do
     [
       {:cowboy, "~> 2.7.0"},
-      {:jiffy, "~> 1.0"}
+      {:jiffy, "~> 1.0"},
+      {:mongodb_driver, "~> 0.6"}
     ]
   end
 end
