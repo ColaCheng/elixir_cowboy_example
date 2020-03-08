@@ -5,22 +5,9 @@ defmodule ElixirCowboyExample.Application do
   import Supervisor.Spec
 
   def start(_type, _args) do
-    dispatch =
-      :cowboy_router.compile([
-        {
-          :_,
-          [
-            {"/", ElixirCowboyExample.Handler.Example, []},
-            {"/video/:user_id/favorite[/:video_id]", ElixirCowboyExample.Handler.VideoFavorite,
-             []}
-          ]
-        }
-      ])
-
-    {:ok, _} = :cowboy.start_clear(:http, [port: 8080], %{env: %{dispatch: dispatch}})
-
     children = [
-      worker(Mongo, [[name: :mongo, database: "test", pool_size: 3]])
+      worker(Mongo, [[name: :mongo, database: "test", pool_size: 3]]),
+      worker(ElixirCowboyExample.CowboyServer, [])
     ]
 
     opts = [strategy: :one_for_one, name: ElixirCowboyExample.Supervisor]
