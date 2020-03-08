@@ -62,7 +62,7 @@ server: Cowboy
 {"videos":[{"video_id":"321","id":"5e64f838dc26e4300a38e638"}],"cursor":"5e64f838dc26e4300a38e638"}
 ```
 
-#### DELETE A Video From Favorites
+#### Delete A Video From Favorites
 DELETE /video/:user_id/favorite/:video_id
 
 example:
