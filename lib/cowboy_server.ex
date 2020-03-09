@@ -28,12 +28,11 @@ defmodule ElixirCowboyExample.CowboyServer do
   end
 
   defp init_indexes() do
-    :ok =
-      Mongo.create_indexes(
-        @mongo_server,
-        @video_favorite_coll,
-        [[{"key", [{"user_id", 1}, {"video_id", 1}]}, {"name", "user_id.video_id"}]],
-        [{"unique", 1}]
-      )
+    Mongo.create_indexes(
+      @mongo_server,
+      @video_favorite_coll,
+      [[{"key", [{"user_id", 1}, {"video_id", 1}]}, {"name", "user_id.video_id"}]],
+      [{"unique", 1}]
+    )
   end
 end
