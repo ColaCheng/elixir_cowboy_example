@@ -13,7 +13,7 @@ defmodule ElixirCowboyExample.MixProject do
 
   def application do
     [
-      application: [
+      applications: [
         :cowboy,
         :mongodb_driver
       ],
